@@ -10,18 +10,22 @@ control 0
 ##############################
 # Convergence Params
 # Number of bands to use (includes valence right now, so we will have 36 unoccupied)
-nbands 40
+nbands 60
 # k-point sampling, if not here will use defaults (could be higher)
-nkpt { 10 10 10 }
+nkpt { 16 16 16 }
 # k-point sampling for calculating W (\chi)
 # Because we are interested in a limited region of real-space
 #  2x2x2 is good enough almost always
-paw.nkpt{ 2 2 2 }
+paw.nkpt{ 4 4 4 }
 # Number of bands to use for the screening calculation (could be higher)
 paw.nbands 200
 # Real-space sampling for calcualting the action of W on a wave function
 cnbse.xmesh{ 6 6 6 }
-
+#
+ngkpt { 8 8 8 }
+##
+##obkpt { 8 8 8 }
+#
 
 ##############################
 # ABINIT style crystallographic info
@@ -49,8 +53,7 @@ xred {
 0  0   0
 }
 
-ecut 100
-
+ecut 40 
 
 diemac 11.85
 
@@ -62,11 +65,11 @@ nedges 1
 edges{ 1 2 1 }
 
 # radius for paw reconstruciton
-paw.shells{ 4.0 }
-cnbse.rad{ 4.0 }
+paw.shells{ 4.0 4.5 }
+cnbse.rad{ 4.5 }
 
 # spectral broadening in Hartree
-cnbse.broaden{ 0.02 }
+cnbse.broaden{ 0.0036 }
 
 #Scaling Factor
 scfac 1.00
